@@ -1,0 +1,1510 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rub &amp; Restore | Book a Visit</title>
+    <meta
+      name="description"
+      content="Therapeutic massage at our studio or your place. Solo or couples. Build your visit and request a time."
+    />
+    <style>
+      :root {
+        --dk: #6c3d52;
+        --ac: #f4c6d7;
+        --soft: #fdf1f5;
+        --ink: #3f2431;
+        --mute: #7c5a68;
+        --line: #efd7df;
+      }
+      [data-theme='plum'] {
+        --dk: #4c2a52;
+        --ac: #e9bfd4;
+        --soft: #f8edf5;
+        --ink: #2f1f34;
+        --mute: #725d78;
+        --line: #e7d6e5;
+      }
+      [data-theme='forest'] {
+        --dk: #6b4d5b;
+        --ac: #e7b9c9;
+        --soft: #fdf2f6;
+        --ink: #422d37;
+        --mute: #7a6570;
+        --line: #ecd5dd;
+      }
+      [data-theme='slate'] {
+        --dk: #5a4257;
+        --ac: #e8c0d8;
+        --soft: #f9f1f5;
+        --ink: #362a34;
+        --mute: #72616d;
+        --line: #e8d8df;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font:
+          17px/1.6 Georgia,
+          'Times New Roman',
+          serif;
+        color: var(--ink);
+        background: #fff;
+      }
+      h1,
+      h2,
+      h3,
+      .sans,
+      button,
+      input,
+      select,
+      textarea,
+      nav,
+      label {
+        font-family:
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        line-height: 1.1;
+        margin: 0;
+      }
+      em {
+        font-style: italic;
+        color: var(--ac);
+      }
+      .shell {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 22px;
+      }
+      :focus-visible {
+        outline: 3px solid var(--ac);
+        outline-offset: 2px;
+      }
+      .header {
+        background: var(--dk);
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        height: 68px;
+      }
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        text-decoration: none;
+        font: 700 18px system-ui;
+        letter-spacing: 0.04em;
+      }
+      .mark {
+        background: var(--ac);
+        color: var(--dk);
+        border-radius: 8px;
+        padding: 2px 8px;
+        font-size: 15px;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      nav a {
+        color: #e4eeeb;
+        text-decoration: none;
+        font-size: 15px;
+      }
+      .nav-cta {
+        background: var(--ac);
+        color: var(--dk) !important;
+        padding: 9px 16px;
+        border-radius: 6px;
+        font-weight: 700;
+      }
+      .themes {
+        display: flex;
+        gap: 6px;
+      }
+      .themes button {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        cursor: pointer;
+        padding: 0;
+      }
+      .hero {
+        background: var(--dk);
+        color: #fff;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 40px;
+        align-items: center;
+        padding-top: 56px;
+        padding-bottom: 56px;
+      }
+      .overline {
+        font: 700 12px system-ui;
+        letter-spacing: 0.2em;
+        color: var(--ac);
+        margin: 0 0 18px;
+      }
+      .overline.dark {
+        color: var(--dk);
+      }
+      .hero h1 {
+        font-size: clamp(42px, 6vw, 72px);
+      }
+      .hero p {
+        color: #cfddd9;
+        font-size: 19px;
+        max-width: 46ch;
+      }
+      .hero-buttons {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+        margin: 26px 0;
+      }
+      .primary {
+        background: var(--ac);
+        color: var(--dk);
+        padding: 15px 26px;
+        border-radius: 6px;
+        text-decoration: none;
+        font: 700 16px system-ui;
+      }
+      .secondary {
+        color: #fff;
+        font: 600 16px system-ui;
+        border-bottom: 1px solid #fff;
+        text-decoration: none;
+      }
+      .hero-meta {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        font: 14px system-ui;
+        color: #b5c9c4;
+      }
+      .hero-visual {
+        position: relative;
+      }
+      .hero-visual img {
+        width: 100%;
+        height: 480px;
+        object-fit: cover;
+        border-radius: 6px;
+        display: block;
+      }
+      .visual-stamp {
+        position: absolute;
+        left: -18px;
+        bottom: 24px;
+        background: var(--ac);
+        color: var(--dk);
+        padding: 14px 20px;
+        border-radius: 4px;
+      }
+      .visual-stamp span {
+        font: 700 11px system-ui;
+        letter-spacing: 0.16em;
+        display: block;
+      }
+      .visual-stamp strong {
+        font: 400 italic 22px Georgia;
+      }
+      .booking {
+        padding-top: 72px;
+        padding-bottom: 72px;
+      }
+      .booking-head {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+      .booking-head h2 {
+        font-size: clamp(34px, 5vw, 54px);
+      }
+      .booking-head p {
+        color: var(--mute);
+        margin: 0;
+      }
+      .booking-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 26px;
+        align-items: start;
+      }
+      .form-card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 28px;
+      }
+      .step {
+        display: flex;
+        gap: 14px;
+        margin: 26px 0 14px;
+      }
+      .step:first-child {
+        margin-top: 0;
+      }
+      .step > span {
+        font: 700 14px system-ui;
+        background: var(--dk);
+        color: var(--ac);
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        flex: none;
+      }
+      .step h3 {
+        font-size: 22px;
+      }
+      .step p {
+        margin: 2px 0 0;
+        color: var(--mute);
+        font-size: 15px;
+      }
+      .choices {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+      }
+      .choice {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-align: left;
+        background: #fff;
+        border: 1.5px solid var(--line);
+        border-radius: 8px;
+        padding: 13px 14px;
+        cursor: pointer;
+        font-size: 15px;
+        color: var(--ink);
+      }
+      .choice span:nth-child(2) {
+        flex: 1;
+      }
+      .check-circle {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid var(--line);
+        flex: none;
+      }
+      .choice[aria-pressed='true'] {
+        border-color: var(--dk);
+        background: var(--soft);
+      }
+      .choice[aria-pressed='true'] .check-circle {
+        background: var(--dk);
+        border-color: var(--dk);
+      }
+      .selection-count {
+        font: 14px system-ui;
+        color: var(--mute);
+        margin: 10px 0 0;
+      }
+      .segmented,
+      .mode-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .mode-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .segmented button,
+      .mode {
+        border: 1.5px solid var(--line);
+        background: #fff;
+        border-radius: 8px;
+        padding: 11px 18px;
+        cursor: pointer;
+        font-size: 15px;
+        color: var(--ink);
+      }
+      .mode {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 72px;
+        text-align: left;
+        width: 100%;
+      }
+      .mode span {
+        display: block;
+        font-size: 13px;
+        color: var(--mute);
+      }
+      .segmented .active,
+      .mode.active {
+        background: var(--dk);
+        color: #fff;
+        border-color: var(--dk);
+      }
+      .mode.active span {
+        color: #cfddd9;
+      }
+      .fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .fields label {
+        font-size: 14px;
+        font-weight: 600;
+        display: grid;
+        gap: 6px;
+      }
+      .fields .full {
+        grid-column: 1/-1;
+      }
+      input,
+      select,
+      textarea {
+        font-size: 16px;
+        padding: 11px 12px;
+        border: 1.5px solid var(--line);
+        border-radius: 6px;
+        width: 100%;
+        background: #fff;
+        color: var(--ink);
+      }
+      .summary {
+        position: sticky;
+        top: 84px;
+      }
+      .summary-inner {
+        background: var(--soft);
+        border-radius: 10px;
+        padding: 26px;
+      }
+      .summary-inner h3 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+      .summary-list p,
+      .summary-list div {
+        margin: 0 0 6px;
+        font: 15px system-ui;
+      }
+      .summary-list div {
+        display: flex;
+        justify-content: space-between;
+      }
+      .sum-row {
+        display: flex;
+        justify-content: space-between;
+        font: 16px system-ui;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+      }
+      .sum-row strong {
+        font-size: 20px;
+      }
+      .sum-row.deposit strong {
+        color: var(--dk);
+      }
+      .approval,
+      .travel-note {
+        font: 13px/1.5 system-ui;
+        color: var(--mute);
+      }
+
+      .service-section {
+        background: #261d2e;
+        color: #f9f5f3;
+        padding: 40px 0 70px;
+        scroll-margin-top: 82px;
+      }
+      .section-head {
+        max-width: 620px;
+        margin: 0 auto 20px;
+      }
+      .section-head h2 {
+        font-size: clamp(32px, 5vw, 52px);
+        line-height: 1.05;
+        margin: 0;
+      }
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, auto));
+        gap: 16px;
+        align-items: stretch;
+      }
+      .service-card {
+        background: #fff;
+        color: var(--ink);
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-height: 200px;
+        height: 100%;
+      }
+      .service-card span {
+        font: 700 12px system-ui;
+        letter-spacing: 0.14em;
+        color: var(--dk);
+      }
+      .service-card h3 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.2;
+      }
+      .service-card p {
+        margin: 0;
+        color: var(--mute);
+        font-size: 15px;
+      }
+      .service-card a {
+        margin-top: auto;
+        color: var(--dk);
+        text-decoration: none;
+        font: 600 15px system-ui;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .service-card a svg {
+        width: 16px;
+        height: 16px;
+      }
+      .pricing {
+        padding: 40px 0 60px;
+        background: #f5f1ee;
+      }
+      .pricing .section-head {
+        margin-bottom: 24px;
+      }
+      .pricing .section-head p:last-of-type {
+        margin: 16px 0 0;
+        max-width: 700px;
+        color: var(--mute);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      .table-scroll {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+      }
+      table {
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+      caption {
+        text-align: left;
+        padding: 16px 20px 12px;
+        font: 700 14px system-ui;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--dk);
+      }
+      thead th {
+        background: #f0ece8;
+        color: var(--dk);
+        font: 700 13px system-ui;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 14px 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+      }
+      tbody th,
+      tbody td {
+        padding: 12px 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        font-size: 15px;
+      }
+      tbody th {
+        font: 700 15px system-ui;
+        color: var(--ink);
+      }
+      tbody td {
+        color: var(--ink);
+      }
+      tbody tr:last-child th,
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+      .pricing-note {
+        margin: 18px 0 0;
+        color: var(--mute);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .policy-check {
+        display: flex;
+        gap: 10px;
+        font: 14px system-ui;
+        margin: 12px 0;
+      }
+      .policy-check input {
+        width: auto;
+        margin-top: 3px;
+      }
+      .submit {
+        width: 100%;
+        background: var(--dk);
+        color: #fff;
+        border: 0;
+        border-radius: 6px;
+        padding: 15px;
+        font: 700 16px system-ui;
+        cursor: pointer;
+      }
+      .submit:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+      .submit:not(:disabled):hover {
+        cursor: pointer;
+      }
+      .policies {
+        background: var(--soft);
+        padding: 64px 0;
+      }
+      .policies h2 {
+        font-size: 40px;
+        margin-bottom: 22px;
+      }
+      .pol-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .pol {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+      }
+      .pol h3 {
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+      .pol p {
+        margin: 0;
+        color: var(--mute);
+        font-size: 15px;
+      }
+      footer {
+        background: var(--dk);
+        color: #cfddd9;
+        padding: 44px 0;
+        font: 15px/1.8 system-ui;
+      }
+      footer a {
+        color: var(--ac);
+      }
+      footer strong {
+        color: #fff;
+        font-size: 18px;
+      }
+      @media (max-width: 820px) {
+        .hero-grid,
+        .booking-head,
+        .booking-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-visual img {
+          height: 320px;
+        }
+        .summary {
+          position: static;
+        }
+        .fields {
+          grid-template-columns: 1fr;
+        }
+        nav a:not(.nav-cta) {
+          display: none;
+        }
+        .visual-stamp {
+          left: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="shell nav">
+        <a class="wordmark" href="#top"
+          ><span class="mark">RR</span><span>RUB &amp; RESTORE</span></a
+        >
+        <nav aria-label="Main navigation">
+          <a href="#book">Services</a><a href="#policies">Policies</a
+          ><a href="#contact">Contact</a>
+          <span
+            class="themes"
+            id="themes"
+            role="group"
+            aria-label="Color theme"
+          ></span>
+          <a class="nav-cta" href="#book">Request a visit</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div>
+            <p class="overline">RELIEF FOR THE BODY YOU LIVE IN</p>
+            <h1>Care for your body.<br /><em>Time for yourself.</em></h1>
+            <p>
+              Build a visit that feels like yours. Choose one to three massage
+              styles, pick your time, and send a request. Solo or couples,
+              studio or home visit.
+            </p>
+            <div class="hero-buttons">
+              <a class="primary" href="#book">Plan your visit</a
+              ><a class="secondary" href="#pricing">See the prices</a>
+            </div>
+            <div class="hero-meta">
+              <span>Studio or home visits</span
+              ><span>Request first, confirmation after</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img
+              alt="A calm massage room with a linen-covered treatment table"
+              src="treatment-room.webp"
+            />
+            <div class="visual-stamp">
+              <span>RUB &amp; RESTORE</span
+              ><strong>Rest looks good<br />on you.</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="booking shell" id="book">
+        <div class="booking-head">
+          <div>
+            <p class="overline dark">PERSONALIZE YOUR VISIT</p>
+            <h2>Make it <em>your moment.</em></h2>
+          </div>
+          <p>
+            Choose 1 to 3 massage styles for one shared visit length. Prices are
+            per 60 minutes and added together, and longer visits cost more.
+          </p>
+        </div>
+        <div class="booking-grid">
+          <div class="form-card">
+            <div class="step">
+              <span>01</span>
+              <div>
+                <h3>Choose 1 to 3 styles</h3>
+                <p>Each style is included within one shared visit length.</p>
+              </div>
+            </div>
+            <div class="choices" id="styles"></div>
+            <p class="selection-count" id="count"></p>
+            <div class="step">
+              <span>02</span>
+              <div>
+                <h3>Set the visit length</h3>
+                <p>One length for all the styles you picked.</p>
+              </div>
+            </div>
+            <div class="segmented" id="lens"></div>
+            <div class="step">
+              <span>03</span>
+              <div>
+                <h3>Who and where</h3>
+                <p>Come to the studio or we travel to you.</p>
+              </div>
+            </div>
+            <div class="mode-row" id="who"></div>
+            <div class="mode-row" id="where" style="margin-top: 10px"></div>
+            <div class="step">
+              <span>04</span>
+              <div>
+                <h3>Tell us about your visit</h3>
+                <p>Suggest any day and time. We confirm availability.</p>
+              </div>
+            </div>
+            <div class="fields">
+              <label
+                >Full name<input
+                  id="f-name"
+                  placeholder="Your name"
+                  autocomplete="name"
+              /></label>
+              <label
+                >Phone<input
+                  id="f-phone"
+                  type="tel"
+                  placeholder="Your phone number"
+                  autocomplete="tel"
+              /></label>
+              <label
+                >Email<input
+                  id="f-email"
+                  required=""
+                  maxlength="180"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  type="email"
+                  value=""
+              /></label>
+              <label>Preferred date<input id="f-date" type="date" /></label>
+              <label
+                >Preferred start time<input id="f-time" type="time"
+              /></label>
+              <label
+                >Preferred deposit method<select id="f-deposit" required="">
+                  <option value="">Choose a method</option>
+                  <option>Cash App</option>
+                  <option>Chime</option>
+                  <option>USDT</option>
+                  <option>Cryptocurrency</option>
+                </select></label
+              >
+
+              <label class="full"
+                >Anything else? (optional)<textarea
+                  id="f-note"
+                  rows="3"
+                  placeholder="Problem areas, pressure, anything to avoid."
+                ></textarea>
+              </label>
+            </div>
+          </div>
+          <aside class="summary">
+            <div class="summary-inner">
+              <p class="overline dark">YOUR REQUEST</p>
+              <h3>Visit summary</h3>
+              <div class="summary-list" id="list"></div>
+              <div class="sum-row">
+                <span>Massage total</span><strong id="total">$0</strong>
+              </div>
+              <div class="sum-row deposit">
+                <span>70% deposit to hold your slot</span
+                ><strong id="dep">$0</strong>
+              </div>
+              <p id="tn">
+                Your in-call location is shared privately after approval.
+              </p>
+              <div class="approval">
+                <p>
+                  This is a request, not a confirmed appointment. We reply to
+                  confirm the time and share payment details.
+                </p>
+              </div>
+              <label class="policy-check"
+                ><input type="checkbox" id="agree" /><span
+                  >I have read the policies below.</span
+                ></label
+              >
+              <button class="submit" id="send" disabled>Send request</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="service-section" id="services">
+        <div class="shell">
+          <div class="section-head">
+            <p class="overline">THE MENU</p>
+            <h2>A style for every<br /><em>kind of reset.</em></h2>
+          </div>
+          <div class="service-grid">
+            <div class="service-card">
+              <span>01</span>
+              <h3>Swedish</h3>
+              <p>From $100 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+            <div class="service-card">
+              <span>02</span>
+              <h3>Deep Tissue</h3>
+              <p>From $120 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+            <div class="service-card">
+              <span>03</span>
+              <h3>Thai</h3>
+              <p>From $120 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+            <div class="service-card">
+              <span>04</span>
+              <h3>Sports</h3>
+              <p>From $115 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+            <div class="service-card">
+              <span>05</span>
+              <h3>Reflexology</h3>
+              <p>From $100 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+            <div class="service-card">
+              <span>06</span>
+              <h3>Shiatsu</h3>
+              <p>From $110 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+            <div class="service-card">
+              <span>07</span>
+              <h3>Lymphatic Drainage</h3>
+              <p>From $125 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+            <div class="service-card">
+              <span>08</span>
+              <h3>Nuru</h3>
+              <p>From $135 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+            <div class="service-card">
+              <span>09</span>
+              <h3>Happy Ending</h3>
+              <p>From $145 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+            <div class="service-card">
+              <span>10</span>
+              <h3>Body Rubs</h3>
+              <p>From $110 · 60 minutes</p>
+              <a href="#book"
+                >Include in my visit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing shell" id="pricing">
+        <div class="section-head">
+          <p class="overline dark">CLEAR PRICING</p>
+          <h2>Know your options<br /><em>before you request.</em></h2>
+          <p>
+            Prices shown are for each massage style at the chosen visit length.
+            Select 2–5 styles and their prices are added together. Out-call
+            travel is quoted separately after we know your city and state.
+          </p>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <caption>
+              Massage prices in US dollars
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Massage type</th>
+                <th scope="col">60 min</th>
+                <th scope="col">90 min</th>
+                <th scope="col">120 min</th>
+                <th scope="col">200 min</th>
+                <th scope="col">Overnight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Swedish</th>
+                <td>$100</td>
+                <td>$145</td>
+                <td>$180</td>
+                <td>$250</td>
+                <td>$400</td>
+              </tr>
+              <tr>
+                <th scope="row">Deep Tissue</th>
+                <td>$120</td>
+                <td>$165</td>
+                <td>$200</td>
+                <td>$270</td>
+                <td>$420</td>
+              </tr>
+              <tr>
+                <th scope="row">Thai</th>
+                <td>$120</td>
+                <td>$165</td>
+                <td>$200</td>
+                <td>$270</td>
+                <td>$420</td>
+              </tr>
+              <tr>
+                <th scope="row">Sports</th>
+                <td>$115</td>
+                <td>$160</td>
+                <td>$195</td>
+                <td>$265</td>
+                <td>$415</td>
+              </tr>
+              <tr>
+                <th scope="row">Reflexology</th>
+                <td>$100</td>
+                <td>$145</td>
+                <td>$180</td>
+                <td>$250</td>
+                <td>$400</td>
+              </tr>
+              <tr>
+                <th scope="row">Shiatsu</th>
+                <td>$110</td>
+                <td>$155</td>
+                <td>$190</td>
+                <td>$260</td>
+                <td>$410</td>
+              </tr>
+              <tr>
+                <th scope="row">Lymphatic Drainage</th>
+                <td>$125</td>
+                <td>$170</td>
+                <td>$205</td>
+                <td>$275</td>
+                <td>$425</td>
+              </tr>
+              <tr>
+                <th scope="row">Nuru</th>
+                <td>$135</td>
+                <td>$180</td>
+                <td>$215</td>
+                <td>$285</td>
+                <td>$435</td>
+              </tr>
+              <tr>
+                <th scope="row">Happy Ending</th>
+                <td>$145</td>
+                <td>$190</td>
+                <td>$225</td>
+                <td>$295</td>
+                <td>$445</td>
+              </tr>
+              <tr>
+                <th scope="row">Body Rubs</th>
+                <td>$110</td>
+                <td>$155</td>
+                <td>$190</td>
+                <td>$260</td>
+                <td>$410</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing-note">
+          Overnight visits run from 8 PM to 6 AM. A 70% deposit is required for
+          approval; no payment is collected on this website.
+        </p>
+      </section>
+
+      <section class="policies" id="policies">
+        <div class="shell">
+          <h2>Policies</h2>
+          <div class="pol-grid">
+            <div class="pol">
+              <h3>70% booking deposit</h3>
+              <p>
+                A 70% deposit is required to secure your appointment. This
+                deposit is part of your total session price, not an additional
+                charge.
+              </p>
+            </div>
+
+            <div class="pol">
+              <h3>Booking confirmation</h3>
+              <p>
+                Your booking is confirmed only after payment has been received
+                and a confirmation message has been sent to you.
+              </p>
+            </div>
+
+            <div class="pol">
+              <h3>Remaining balance</h3>
+              <p>
+                The remaining 30% balance must be paid before your massage
+                session begins.
+              </p>
+            </div>
+
+            <div class="pol">
+              <h3>Cancellations and rescheduling</h3>
+              <p>
+                Please provide at least 24 hours’ notice if you need to cancel
+                or reschedule. With proper notice, your deposit may be
+                transferred once to another available appointment within 30
+                days.
+              </p>
+            </div>
+
+            <div class="pol">
+              <h3>Late cancellations and missed appointments</h3>
+              <p>
+                Deposits may be forfeited for cancellations made with less than
+                24 hours notice or for missed appointments without notice.
+              </p>
+            </div>
+
+            <div class="pol">
+              <h3>Late arrival</h3>
+              <p>
+                Late arrival may reduce the length of your session to avoid
+                delaying the next client. The full agreed price will still
+                apply.
+              </p>
+            </div>
+
+            <div class="pol">
+              <h3>Health first</h3>
+              <p>
+                Please disclose any medical conditions, allergies, injuries,
+                pregnancy, recent surgery, or medications that could affect your
+                treatment.
+              </p>
+            </div>
+
+            <div class="pol">
+              <h3>Confidentiality</h3>
+              <p>
+                our personal and booking information will remain confidential
+                except when disclosure is required by law.
+              </p>
+            </div>
+
+            <div class="pol">
+              <h3>Your agreement</h3>
+              <p>
+                By paying the 70% deposit, you confirm that you have read,
+                understood, and accepted this booking policy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="shell">
+        <strong>Rub &amp; Restore</strong><br />
+        WhatsApp:
+        <a href="https://wa.me/12512131358" target="_blank" rel="noopener"
+          >+1 (251) 213-1358</a
+        >
+        &middot; Email:
+        <a href="mailto:hello@rubandrestore.com">hello@rubandrestore.com</a
+        ><br />
+        In-call by appointment · Out-call requests across the United States
+      </div>
+    </footer>
+
+    <script>
+      var WA = '15551234567';
+      var EMAIL = 'hello@rubandrestore.com';
+      var STY = [
+        ['Swedish', 100],
+        ['Deep Tissue', 120],
+        ['Thai', 120],
+        ['Sports', 115],
+        ['Reflexology', 100],
+        ['Shiatsu', 110],
+        ['Lymphatic Drainage', 125],
+        ['Happy Ending', 150],
+        ['Nuru', 135],
+        ['Body Rub', 130],
+      ];
+      var LEN = [
+        ['60 min', 1],
+        ['90 min', 1.5],
+        ['120 min', 2],
+        ['200 min', 3.33],
+        ['Overnight', 8.0],
+      ];
+      var WHO = [
+        ['Solo', 'Just me', 1],
+        ['Couple', 'Two therapists, side by side', 2],
+      ];
+      var WH = [
+        ['Studio', 'Come to us', 0],
+        [
+          'Home visit',
+          'We travel to you and travel charge will communicated',
+          50,
+        ],
+      ];
+      var sel = [],
+        li = 0,
+        wi = 0,
+        pi = 0;
+      var $ = function (i) {
+        return document.getElementById(i);
+      };
+      function render() {
+        $('styles').innerHTML = '';
+        STY.forEach(function (s, i) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'choice';
+          b.setAttribute('aria-pressed', sel.indexOf(i) > -1);
+          b.innerHTML =
+            '<span class="check-circle"></span><span>' +
+            s[0] +
+            '</span><strong>$' +
+            s[1] +
+            '</strong>';
+          b.onclick = function () {
+            var k = sel.indexOf(i);
+            if (k > -1) sel.splice(k, 1);
+            else if (sel.length < 3) sel.push(i);
+            render();
+          };
+          $('styles').appendChild(b);
+        });
+        grp(
+          'lens',
+          LEN,
+          li,
+          function (i) {
+            li = i;
+          },
+          function (x) {
+            return x[0];
+          },
+          true,
+        );
+        grp(
+          'who',
+          WHO,
+          wi,
+          function (i) {
+            wi = i;
+          },
+          function (x) {
+            return '<strong>' + x[0] + '</strong><span>' + x[1] + '</span>';
+          },
+        );
+        grp(
+          'where',
+          WH,
+          pi,
+          function (i) {
+            pi = i;
+          },
+          function (x) {
+            return (
+              '<strong>' +
+              x[0] +
+              '</strong><span>' +
+              x[1] +
+              (x[2] ? ' (+$' + x[2] + ' travel)' : '') +
+              '</span>'
+            );
+          },
+        );
+        $('count').textContent = sel.length + ' of 1 to 3 selected';
+        var base = sel.reduce(function (a, i) {
+            return a + STY[i][1];
+          }, 0),
+          t = Math.round((base * LEN[li][1] * WHO[wi][2]) / 5) * 5,
+          tr = WH[pi][2];
+        $('list').innerHTML = sel.length
+          ? sel
+              .map(function (i) {
+                return (
+                  '<div><span>' +
+                  STY[i][0] +
+                  '</span><span>$' +
+                  STY[i][1] +
+                  '</span></div>'
+                );
+              })
+              .join('') +
+            '<p>' +
+            LEN[li][0] +
+            ', ' +
+            WHO[wi][0].toLowerCase() +
+            ', ' +
+            WH[pi][0].toLowerCase() +
+            '</p>'
+          : '<p>Choose your massage styles to see the total.</p>';
+        var total = sel.length ? t + tr : 0;
+        $('total').textContent = '$' + total;
+        $('dep').textContent = '$' + (sel.length ? Math.round(total * 0.7) : 0);
+        $('tn').textContent = tr
+          ? 'Includes a $' +
+            tr +
+            ' travel fee. Your address is confirmed privately.'
+          : 'Studio address is shared once your request is confirmed.';
+        $('send').disabled = !(sel.length && $('agree').checked);
+      }
+      function grp(id, arr, cur, set, fmt, seg) {
+        var el = $(id);
+        el.innerHTML = '';
+        arr.forEach(function (x, i) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = (seg ? '' : 'mode ') + (i == cur ? 'active' : '');
+          b.innerHTML = fmt(x);
+          b.onclick = function () {
+            set(i);
+            render();
+          };
+          el.appendChild(b);
+        });
+      }
+      $('agree').onchange = render;
+      $('send').onclick = function () {
+        var m =
+          "Hi Rub & Restore, I'd like to request a visit:\n" +
+          sel
+            .map(function (i) {
+              return STY[i][0];
+            })
+            .join(' + ') +
+          '\n' +
+          LEN[li][0] +
+          ', ' +
+          WHO[wi][0] +
+          ', ' +
+          WH[pi][0] +
+          '\nTotal: ' +
+          $('total').textContent +
+          ' (deposit ' +
+          $('dep').textContent +
+          ')\nName: ' +
+          $('f-name').value +
+          '\nPhone: ' +
+          $('f-phone').value +
+          '\nEmail: ' +
+          $('f-email').value +
+          '\nPreferred date/time: ' +
+          $('f-date').value +
+          ' ' +
+          $('f-time').value +
+          '\nDeposit method: ' +
+          $('f-deposit').value +
+          '\nNotes: ' +
+          $('f-note').value;
+        window.open(
+          'https://wa.me/' + WA + '?text=' + encodeURIComponent(m),
+          '_blank',
+        );
+      };
+      var TH = [
+        ['teal', '#0F3B45'],
+        ['plum', '#221B3A'],
+        ['forest', '#17352A'],
+        ['slate', '#1E2A38'],
+      ];
+      function theme(n) {
+        if (n == 'teal') document.documentElement.removeAttribute('data-theme');
+        else document.documentElement.setAttribute('data-theme', n);
+        try {
+          localStorage.setItem('rr-theme', n);
+        } catch (e) {}
+      }
+      TH.forEach(function (t) {
+        var b = document.createElement('button');
+        b.style.background = t[1];
+        b.title = t[0];
+        b.setAttribute('aria-label', t[0] + ' theme');
+        b.onclick = function () {
+          theme(t[0]);
+        };
+        $('themes').appendChild(b);
+      });
+      try {
+        var s = localStorage.getItem('rr-theme');
+        if (s) theme(s);
+      } catch (e) {}
+      render();
+    </script>
+  </body>
+</html>
