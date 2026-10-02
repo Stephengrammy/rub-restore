@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rub & Restore favicon">
+  <defs>
+    <linearGradient id="rrGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7d7e3"/>
+      <stop offset="100%" stop-color="#6c3d52"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#fdf1f5"/>
+  <rect x="7" y="7" width="50" height="50" rx="12" fill="url(#rrGrad)"/>
+  <text x="32" y="39" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="700" fill="#fff">RR</text>
+</svg>

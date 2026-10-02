@@ -8,6 +8,14 @@
       name="description"
       content="Therapeutic massage at our studio or your place. Solo or couples. Build your visit and request a time."
     />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --dk: #6c3d52;
@@ -106,7 +114,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 16px;
-        height: 68px;
+        min-height: 68px;
       }
       .wordmark {
         display: flex;
@@ -114,7 +122,9 @@
         gap: 10px;
         color: #fff;
         text-decoration: none;
-        font: 700 18px system-ui;
+        font:
+          700 18px 'Kaushan Script',
+          cursive;
         letter-spacing: 0.04em;
       }
       .mark {
@@ -123,6 +133,7 @@
         border-radius: 8px;
         padding: 2px 8px;
         font-size: 15px;
+        font-family: 'Kaushan Script', cursive;
       }
       nav {
         display: flex;
@@ -140,6 +151,52 @@
         padding: 9px 16px;
         border-radius: 6px;
         font-weight: 700;
+      }
+      .nav-toggle {
+        display: none;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+      }
+      .nav-toggle-bar {
+        position: relative;
+        width: 18px;
+        height: 2px;
+        background: #fff;
+        border-radius: 999px;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 18px;
+        height: 2px;
+        background: #fff;
+        border-radius: 999px;
+        transition: transform 0.2s ease;
+      }
+      .nav-toggle-bar::before {
+        top: -6px;
+      }
+      .nav-toggle-bar::after {
+        top: 6px;
+      }
+      .nav-toggle.is-open .nav-toggle-bar {
+        background: transparent;
+      }
+      .nav-toggle.is-open .nav-toggle-bar::before {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .nav-toggle.is-open .nav-toggle-bar::after {
+        transform: translateY(-6px) rotate(-45deg);
       }
       .themes {
         display: flex;
@@ -384,11 +441,17 @@
       .fields label {
         font-size: 14px;
         font-weight: 600;
-        display: grid;
+        display: flex;
+        flex-direction: column;
         gap: 6px;
+        min-height: 100%;
       }
       .fields .full {
         grid-column: 1/-1;
+      }
+      .fields textarea {
+        min-height: 120px;
+        resize: vertical;
       }
       input,
       select,
@@ -398,6 +461,7 @@
         border: 1.5px solid var(--line);
         border-radius: 6px;
         width: 100%;
+        box-sizing: border-box;
         background: #fff;
         color: var(--ink);
       }
@@ -581,22 +645,47 @@
         width: auto;
         margin-top: 3px;
       }
+      .submit-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 16px;
+      }
       .submit {
         width: 100%;
-        background: var(--dk);
+        background: linear-gradient(135deg, #a45065 0%, #c66c8e 100%);
         color: #fff;
         border: 0;
-        border-radius: 6px;
-        padding: 15px;
-        font: 700 16px system-ui;
+        border-radius: 12px;
+        padding: 16px 14px;
+        font: 700 15px/1.2 system-ui;
+        letter-spacing: 0.02em;
         cursor: pointer;
+        box-shadow: 0 10px 18px rgba(164, 80, 101, 0.22);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          filter 0.18s ease;
+      }
+      .submit.alt {
+        background: #fff;
+        color: var(--dk);
+        border: 1.5px solid rgba(164, 80, 101, 0.55);
+        box-shadow: 0 8px 16px rgba(164, 80, 101, 0.12);
       }
       .submit:disabled {
         opacity: 0.45;
         cursor: not-allowed;
+        box-shadow: none;
+      }
+      .submit.alt:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+        box-shadow: none;
       }
       .submit:not(:disabled):hover {
-        cursor: pointer;
+        transform: translateY(-1px);
+        filter: saturate(1.04);
       }
       .policies {
         background: var(--soft);
@@ -628,21 +717,41 @@
       footer {
         background: var(--dk);
         color: #cfddd9;
-        padding: 44px 0;
-        font: 15px/1.8 system-ui;
+        padding: 12px 0 14px;
+        font:
+          13px/1.5 'Open Sans',
+          'Segoe UI',
+          Arial,
+          sans-serif;
+      }
+      footer .shell {
+        padding-top: 0;
+        padding-bottom: 0;
+        min-height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
       footer a {
         color: var(--ac);
+        font-weight: 600;
       }
       footer strong {
         color: #fff;
-        font-size: 18px;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: 'Kaushan Script', cursive;
       }
       @media (max-width: 820px) {
         .hero-grid,
         .booking-head,
         .booking-grid {
           grid-template-columns: 1fr;
+        }
+        .segmented {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .service-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -660,8 +769,36 @@
         .fields {
           grid-template-columns: 1fr;
         }
-        nav a:not(.nav-cta) {
+        .mode-row {
+          grid-template-columns: 1fr;
+        }
+        .nav {
+          flex-wrap: wrap;
+          padding: 10px 0 12px;
+        }
+        .wordmark {
+          flex: 1;
+        }
+        .nav-toggle {
+          display: inline-flex;
+        }
+        .nav-menu {
           display: none;
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+          padding-top: 8px;
+        }
+        .nav-menu.is-open {
+          display: flex;
+        }
+        .nav-menu a {
+          width: 100%;
+        }
+        .nav-menu .nav-cta {
+          width: 100%;
+          text-align: center;
         }
         .visual-stamp {
           left: 10px;
@@ -675,9 +812,18 @@
         <a class="wordmark" href="#top"
           ><span class="mark">RR</span><span>RUB &amp; RESTORE</span></a
         >
-        <nav aria-label="Main navigation">
-          <a href="#book">Services</a><a href="#policies">Policies</a
-          ><a href="#contact">Contact</a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="main-nav"
+          aria-expanded="false"
+        >
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav class="nav-menu" id="main-nav" aria-label="Main navigation">
+          <a href="#menu">Menu</a><a href="#pricing">Pricing</a
+          ><a href="#policies">Policies</a><a href="#contact">Contact</a>
           <span
             class="themes"
             id="themes"
@@ -797,6 +943,12 @@
                 >Preferred start time<input id="f-time" type="time"
               /></label>
               <label
+                >Location / nearest city<input
+                  id="f-location"
+                  placeholder="City, neighborhood, or ZIP code"
+                  autocomplete="address-level2"
+              /></label>
+              <label
                 >Preferred deposit method<select id="f-deposit" required="">
                   <option value="">Choose a method</option>
                   <option>Cash App</option>
@@ -841,13 +993,20 @@
                   >I have read the policies below.</span
                 ></label
               >
-              <button class="submit" id="send" disabled>Send request</button>
+              <div class="submit-row">
+                <button class="submit" id="send" disabled>
+                  Book via WhatsApp
+                </button>
+                <button class="submit alt" id="email-request" type="button">
+                  Book via Mail
+                </button>
+              </div>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="service-section" id="services">
+      <section class="service-section" id="menu">
         <div class="shell">
           <div class="section-head">
             <p class="overline">THE MENU</p>
@@ -858,7 +1017,7 @@
               <span>01</span>
               <h3>Swedish</h3>
               <p>From $100 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Swedish"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -880,7 +1039,7 @@
               <span>02</span>
               <h3>Deep Tissue</h3>
               <p>From $120 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Deep Tissue"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -902,7 +1061,7 @@
               <span>03</span>
               <h3>Thai</h3>
               <p>From $120 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Thai"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -924,7 +1083,7 @@
               <span>04</span>
               <h3>Sports</h3>
               <p>From $115 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Sports"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -946,7 +1105,7 @@
               <span>05</span>
               <h3>Reflexology</h3>
               <p>From $100 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Reflexology"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -968,7 +1127,7 @@
               <span>06</span>
               <h3>Shiatsu</h3>
               <p>From $110 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Shiatsu"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -990,7 +1149,7 @@
               <span>07</span>
               <h3>Lymphatic Drainage</h3>
               <p>From $125 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Lymphatic Drainage"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1012,7 +1171,7 @@
               <span>08</span>
               <h3>Nuru</h3>
               <p>From $135 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Nuru"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1034,7 +1193,7 @@
               <span>09</span>
               <h3>Happy Ending</h3>
               <p>From $145 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Happy Ending"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1054,9 +1213,9 @@
             </div>
             <div class="service-card">
               <span>10</span>
-              <h3>Body Rubs</h3>
+              <h3>Body Rub</h3>
               <p>From $110 · 60 minutes</p>
-              <a href="#book"
+              <a href="#book" data-style="Body Rub"
                 >Include in my visit
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1239,14 +1398,14 @@
               </p>
             </div>
 
-            <!-- <div class="pol">
+            <div class="pol">
               <h3>Late arrival</h3>
               <p>
                 Late arrival may reduce the length of your session to avoid
                 delaying the next client. The full agreed price will still
                 apply.
               </p>
-            </div> -->
+            </div>
 
             <div class="pol">
               <h3>Health first</h3>
@@ -1279,20 +1438,25 @@
 
     <footer id="contact">
       <div class="shell">
-        <strong>Rub &amp; Restore</strong><br />
-        WhatsApp:
-        <a href="https://wa.me/12512131358" target="_blank" rel="noopener"
-          >+1 (251) 213-1358</a
-        >
-        &middot; Email:
-        <a href="mailto:stxxtyxkit@gmail.com">stxxtyxkit@gmail.com</a><br />
+        <strong>Rub &amp; Restore Massage</strong><br />
+        <span>
+          WhatsApp:
+          <a href="https://wa.me/12512131358" target="_blank" rel="noopener"
+            >+1 (251) 213-1358</a
+          >
+          &middot; Email:
+          <a href="mailto:rubrestoremassage@gmail.com"
+            >rubrestoremassage@gmail.com</a
+          >
+        </span>
+        <br />
         In-call by appointment · Out-call requests across the United States
       </div>
     </footer>
 
     <script>
-      var WA = '15551234567';
-      var EMAIL = 'stxxtyxkit@gmail.com';
+      var WA = '12512131358';
+      var EMAIL = 'rubrestoremassage@gmail.com';
       var STY = [
         ['Swedish', 100],
         ['Deep Tissue', 120],
@@ -1427,7 +1591,9 @@
             tr +
             ' travel fee. Your address is confirmed privately.'
           : 'Studio address is shared once your request is confirmed.';
-        $('send').disabled = !(sel.length && $('agree').checked);
+        var ready = sel.length && $('agree').checked;
+        $('send').disabled = !ready;
+        $('email-request').disabled = !ready;
       }
       function grp(id, arr, cur, set, fmt, seg) {
         var el = $(id);
@@ -1444,9 +1610,47 @@
           el.appendChild(b);
         });
       }
+      var navToggle = document.querySelector('.nav-toggle');
+      var navMenu = document.querySelector('.nav-menu');
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function () {
+          var isOpen = navMenu.classList.toggle('is-open');
+          navToggle.classList.toggle('is-open', isOpen);
+          navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+        navMenu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            if (window.innerWidth <= 820) {
+              navMenu.classList.remove('is-open');
+              navToggle.classList.remove('is-open');
+              navToggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+      }
       $('agree').onchange = render;
-      $('send').onclick = function () {
-        var m =
+      document
+        .querySelectorAll('.service-card a[data-style]')
+        .forEach(function (link) {
+          link.addEventListener('click', function (event) {
+            event.preventDefault();
+            var name = link.getAttribute('data-style');
+            var idx = STY.findIndex(function (item) {
+              return item[0] === name;
+            });
+            if (idx === -1) return;
+            var k = sel.indexOf(idx);
+            if (k > -1) sel.splice(k, 1);
+            else if (sel.length < 3) sel.push(idx);
+            render();
+            var book = $('book');
+            if (book) {
+              book.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      function buildRequestMessage() {
+        return (
           "Hi Rub & Restore, I'd like to request a visit:\n" +
           sel
             .map(function (i) {
@@ -1469,6 +1673,8 @@
           $('f-phone').value +
           '\nEmail: ' +
           $('f-email').value +
+          '\nLocation / nearest city: ' +
+          $('f-location').value +
           '\nPreferred date/time: ' +
           $('f-date').value +
           ' ' +
@@ -1476,11 +1682,21 @@
           '\nDeposit method: ' +
           $('f-deposit').value +
           '\nNotes: ' +
-          $('f-note').value;
+          $('f-note').value
+        );
+      }
+      $('send').onclick = function () {
+        var m = buildRequestMessage();
         window.open(
           'https://wa.me/' + WA + '?text=' + encodeURIComponent(m),
           '_blank',
         );
+      };
+      $('email-request').onclick = function () {
+        var subject = encodeURIComponent('Massage booking request');
+        var body = encodeURIComponent(buildRequestMessage());
+        window.location.href =
+          'mailto:' + EMAIL + '?subject=' + subject + '&body=' + body;
       };
       var TH = [
         ['teal', '#0F3B45'],
