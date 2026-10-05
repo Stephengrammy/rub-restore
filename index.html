@@ -465,6 +465,21 @@
         background: #fff;
         color: var(--ink);
       }
+      .field-error {
+        min-height: 16px;
+        font-size: 12px;
+        line-height: 1.4;
+        color: #a93d52;
+        font-weight: 600;
+        margin-top: 4px;
+      }
+      input.invalid,
+      select.invalid,
+      textarea.invalid {
+        border-color: #c95d73;
+        background: #fff6f8;
+        box-shadow: 0 0 0 1px rgba(201, 93, 115, 0.14);
+      }
       .summary {
         position: sticky;
         top: 84px;
@@ -920,6 +935,7 @@
                   id="f-name"
                   placeholder="Your name"
                   autocomplete="name"
+                  required
               /></label>
               <label
                 >Phone<input
@@ -927,29 +943,33 @@
                   type="tel"
                   placeholder="Your phone number"
                   autocomplete="tel"
+                  required
               /></label>
               <label
                 >Email<input
                   id="f-email"
-                  required=""
+                  required
                   maxlength="180"
                   autocomplete="email"
                   placeholder="you@example.com"
                   type="email"
                   value=""
               /></label>
-              <label>Preferred date<input id="f-date" type="date" /></label>
               <label
-                >Preferred start time<input id="f-time" type="time"
+                >Preferred date<input id="f-date" type="date" required
+              /></label>
+              <label
+                >Preferred start time<input id="f-time" type="time" required
               /></label>
               <label
                 >Location / nearest city<input
                   id="f-location"
                   placeholder="City, neighborhood, or ZIP code"
                   autocomplete="address-level2"
+                  required
               /></label>
               <label
-                >Preferred deposit method<select id="f-deposit" required="">
+                >Preferred deposit method<select id="f-deposit" required>
                   <option value="">Choose a method</option>
                   <option>Cash App</option>
                   <option>Chime</option>
@@ -1495,6 +1515,42 @@
       var $ = function (i) {
         return document.getElementById(i);
       };
+      function updateInlineValidation() {
+        var requiredFields = [
+          { id: 'f-name', msg: 'Please enter your full name.' },
+          { id: 'f-phone', msg: 'Please enter your phone number.' },
+          { id: 'f-email', msg: 'Please enter a valid email address.' },
+          { id: 'f-date', msg: 'Please choose your preferred date.' },
+          { id: 'f-time', msg: 'Please choose your preferred start time.' },
+          {
+            id: 'f-location',
+            msg: 'Please enter your location or nearest city.',
+          },
+          { id: 'f-deposit', msg: 'Please choose a deposit method.' },
+        ];
+
+        requiredFields.forEach(function (field) {
+          var el = $(field.id);
+          if (!el) return;
+          var label = el.closest('label');
+          if (!label) return;
+          var error = label.querySelector('.field-error');
+          if (!error) {
+            error = document.createElement('span');
+            error.className = 'field-error';
+            label.appendChild(error);
+          }
+
+          var hasValue = el.value.trim() !== '';
+          if (field.id === 'f-email') {
+            hasValue = hasValue && el.checkValidity();
+          }
+
+          var shouldShow = el.dataset.touched === 'true' && !hasValue;
+          el.classList.toggle('invalid', shouldShow);
+          error.textContent = shouldShow ? field.msg : '';
+        });
+      }
       function render() {
         $('styles').innerHTML = '';
         STY.forEach(function (s, i) {
@@ -1591,9 +1647,82 @@
             tr +
             ' travel fee. Your address is confirmed privately.'
           : 'Studio address is shared once your request is confirmed.';
-        var ready = sel.length && $('agree').checked;
+        updateInlineValidation();
+        var ready =
+          sel.length && $('agree').checked && hasRequiredBookingDetails();
         $('send').disabled = !ready;
         $('email-request').disabled = !ready;
+      }
+      function hasRequiredBookingDetails() {
+        var requiredIds = [
+          { id: 'f-name', label: 'Full name' },
+          { id: 'f-phone', label: 'Phone' },
+          { id: 'f-email', label: 'Email' },
+          { id: 'f-date', label: 'Preferred date' },
+          { id: 'f-time', label: 'Preferred start time' },
+          { id: 'f-location', label: 'Location / nearest city' },
+          { id: 'f-deposit', label: 'Preferred deposit method' },
+        ];
+
+        return requiredIds.every(function (field) {
+          var el = $(field.id);
+          if (!el) return false;
+          if (field.id === 'f-email') {
+            return el.value.trim() !== '' && el.checkValidity();
+          }
+          return el.value.trim() !== '';
+        });
+      }
+      function validateBookingRequest() {
+        if (!sel.length) {
+          alert(
+            'Please choose at least one massage style before sending your request.',
+          );
+          return false;
+        }
+        if (!$('agree').checked) {
+          alert('Please read and accept the booking policy before submitting.');
+          return false;
+        }
+
+        var requiredIds = [
+          ['f-name', 'Full name'],
+          ['f-phone', 'Phone'],
+          ['f-email', 'Email'],
+          ['f-date', 'Preferred date'],
+          ['f-time', 'Preferred start time'],
+          ['f-location', 'Location / nearest city'],
+          ['f-deposit', 'Preferred deposit method'],
+        ];
+
+        for (var i = 0; i < requiredIds.length; i++) {
+          var id = requiredIds[i][0];
+          var label = requiredIds[i][1];
+          var el = $(id);
+          if (!el) continue;
+          el.dataset.touched = 'true';
+          if (!el.value.trim()) {
+            alert(
+              'Please complete the "' +
+                label +
+                '" field before sending your request.',
+            );
+            el.focus();
+            render();
+            return false;
+          }
+          if (id === 'f-email' && !el.checkValidity()) {
+            alert(
+              'Please enter a valid email address before sending your request.',
+            );
+            el.focus();
+            render();
+            return false;
+          }
+        }
+
+        render();
+        return true;
       }
       function grp(id, arr, cur, set, fmt, seg) {
         var el = $(id);
@@ -1629,6 +1758,24 @@
         });
       }
       $('agree').onchange = render;
+      document
+        .querySelectorAll(
+          '#f-name, #f-phone, #f-email, #f-date, #f-time, #f-location, #f-deposit',
+        )
+        .forEach(function (field) {
+          field.addEventListener('input', function () {
+            field.dataset.touched = 'true';
+            render();
+          });
+          field.addEventListener('change', function () {
+            field.dataset.touched = 'true';
+            render();
+          });
+          field.addEventListener('blur', function () {
+            field.dataset.touched = 'true';
+            render();
+          });
+        });
       document
         .querySelectorAll('.service-card a[data-style]')
         .forEach(function (link) {
@@ -1686,6 +1833,7 @@
         );
       }
       $('send').onclick = function () {
+        if (!validateBookingRequest()) return;
         var m = buildRequestMessage();
         window.open(
           'https://wa.me/' + WA + '?text=' + encodeURIComponent(m),
@@ -1693,6 +1841,7 @@
         );
       };
       $('email-request').onclick = function () {
+        if (!validateBookingRequest()) return;
         var subject = encodeURIComponent('Massage booking request');
         var body = encodeURIComponent(buildRequestMessage());
         window.location.href =
