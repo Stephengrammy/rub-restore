@@ -3,52 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rub &amp; Restore | Book a Visit</title>
+    <title>Rub &amp; Restore | Private Sensual Massage</title>
     <meta
       name="description"
-      content="Therapeutic massage at our studio or your place. Solo or couples. Build your visit and request a time."
+      content="Private, adult-only sensual massage and bodywork. Explore our experiences, choose a session, and request a discreet appointment."
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="apple-touch-icon" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <script defer src="/_vercel/insights/script.js"></script>
     <style>
       :root {
-        --dk: #6c3d52;
-        --ac: #f4c6d7;
-        --soft: #fdf1f5;
-        --ink: #3f2431;
-        --mute: #7c5a68;
-        --line: #efd7df;
-      }
-      [data-theme='plum'] {
-        --dk: #4c2a52;
-        --ac: #e9bfd4;
-        --soft: #f8edf5;
-        --ink: #2f1f34;
-        --mute: #725d78;
-        --line: #e7d6e5;
-      }
-      [data-theme='forest'] {
-        --dk: #6b4d5b;
-        --ac: #e7b9c9;
-        --soft: #fdf2f6;
-        --ink: #422d37;
-        --mute: #7a6570;
-        --line: #ecd5dd;
-      }
-      [data-theme='slate'] {
-        --dk: #5a4257;
-        --ac: #e8c0d8;
-        --soft: #f9f1f5;
-        --ink: #362a34;
-        --mute: #72616d;
-        --line: #e8d8df;
+        --dk: #261b1a;
+        --ac: #c9a477;
+        --soft: #f4eee8;
+        --ink: #302321;
+        --mute: #76665e;
+        --line: #e6d9ce;
       }
       * {
         box-sizing: border-box;
@@ -58,10 +34,7 @@
       }
       body {
         margin: 0;
-        font:
-          17px/1.6 Georgia,
-          'Times New Roman',
-          serif;
+        font: 16px/1.65 'DM Sans', system-ui, sans-serif;
         color: var(--ink);
         background: #fff;
       }
@@ -76,16 +49,14 @@
       nav,
       label {
         font-family:
+          'DM Sans',
           system-ui,
-          -apple-system,
-          'Segoe UI',
-          Roboto,
           sans-serif;
       }
       h1,
       h2,
       h3 {
-        font-family: Georgia, serif;
+        font-family: 'Cormorant Garamond', Georgia, serif;
         font-weight: 400;
         line-height: 1.1;
         margin: 0;
@@ -123,18 +94,16 @@
         gap: 10px;
         color: #fff;
         text-decoration: none;
-        font:
-          700 18px 'Kaushan Script',
-          cursive;
+        font: 600 14px 'DM Sans', sans-serif;
         letter-spacing: 0.04em;
       }
       .mark {
         background: var(--ac);
         color: var(--dk);
-        border-radius: 8px;
-        padding: 2px 8px;
-        font-size: 15px;
-        font-family: 'Kaushan Script', cursive;
+        border-radius: 50%;
+        padding: 7px 8px;
+        font-size: 12px;
+        font-family: 'DM Sans', sans-serif;
       }
       nav {
         display: flex;
@@ -198,18 +167,6 @@
       }
       .nav-toggle.is-open .nav-toggle-bar::after {
         transform: translateY(-6px) rotate(-45deg);
-      }
-      .themes {
-        display: flex;
-        gap: 6px;
-      }
-      .themes button {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        border: 2px solid #fff;
-        cursor: pointer;
-        padding: 0;
       }
       .hero {
         background: var(--dk);
@@ -820,6 +777,684 @@
           left: 10px;
         }
       }
+      html {
+        scroll-padding-top: 88px;
+      }
+      body {
+        background: #f7f3ee;
+        color: #302321;
+      }
+      .shell {
+        max-width: 1240px;
+      }
+      .header {
+        background: rgba(32, 24, 23, 0.97);
+        border-bottom: 1px solid rgba(201, 164, 119, 0.2);
+        backdrop-filter: blur(12px);
+      }
+      .nav {
+        min-height: 76px;
+      }
+      .wordmark {
+        gap: 12px;
+        letter-spacing: 0.17em;
+        font-size: 12px;
+      }
+      .mark {
+        background: transparent;
+        border: 1px solid var(--ac);
+        color: var(--ac);
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        font-size: 11px;
+      }
+      nav {
+        gap: 27px;
+      }
+      nav a {
+        color: #e8dfd7;
+        font-size: 13px;
+      }
+      nav a:not(.nav-cta):hover,
+      footer a:hover {
+        color: var(--ac);
+      }
+      .nav-cta {
+        background: var(--ac);
+        color: #211816 !important;
+        padding: 11px 18px;
+        border-radius: 2px;
+        font-size: 12px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+      .nav-toggle {
+        border-radius: 2px;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse at 82% 55%, rgba(119, 76, 57, 0.25), transparent 40%),
+          #211817;
+        border-bottom: 1px solid rgba(201, 164, 119, 0.24);
+      }
+      .hero-grid {
+        grid-template-columns: 0.96fr 1.04fr;
+        gap: clamp(42px, 7vw, 100px);
+        padding-top: clamp(62px, 9vw, 112px);
+        padding-bottom: clamp(62px, 9vw, 112px);
+      }
+      .overline {
+        font: 600 10px/1.5 'DM Sans', sans-serif;
+        letter-spacing: 0.22em;
+        color: var(--ac);
+      }
+      .overline.dark {
+        color: #987350;
+      }
+      .hero h1 {
+        max-width: 660px;
+        font: 400 clamp(58px, 7.5vw, 100px)/0.88 'Cormorant Garamond', Georgia, serif;
+        letter-spacing: -0.035em;
+      }
+      .hero h1 em,
+      .hero .visual-stamp strong {
+        color: #d3b38b;
+      }
+      .hero p:not(.overline) {
+        max-width: 440px;
+        margin: 28px 0 0;
+        color: #c6b8ae;
+        font-size: 15px;
+        line-height: 1.9;
+      }
+      .hero-buttons {
+        gap: 26px;
+        margin: 34px 0;
+      }
+      .primary {
+        display: inline-block;
+        background: var(--ac);
+        color: #211816;
+        padding: 15px 23px;
+        border-radius: 2px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .primary:hover,
+      .nav-cta:hover {
+        background: #ddc19d;
+      }
+      .secondary {
+        color: #e6d9cd;
+        border-color: rgba(230, 217, 205, 0.5);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+      }
+      .hero-meta {
+        gap: 10px 24px;
+        color: #b7a89d;
+        font-size: 11px;
+        letter-spacing: 0.03em;
+      }
+      .hero-meta span::before {
+        content: '—';
+        color: var(--ac);
+        margin-right: 8px;
+      }
+      .hero-visual {
+        padding: 0 0 22px 22px;
+      }
+      .hero-visual::before {
+        content: '';
+        position: absolute;
+        inset: 20px 0 0 0;
+        border: 1px solid rgba(201, 164, 119, 0.48);
+        pointer-events: none;
+      }
+      .hero-visual img {
+        position: relative;
+        z-index: 1;
+        height: clamp(360px, 42vw, 550px);
+        border-radius: 0;
+        filter: brightness(0.78) saturate(0.76);
+      }
+      .visual-stamp {
+        z-index: 2;
+        left: -14px;
+        bottom: 4px;
+        background: #d0ad82;
+        color: #211816;
+        padding: 13px 18px;
+        border-radius: 0;
+      }
+      .visual-stamp span {
+        font-size: 9px;
+        letter-spacing: 0.18em;
+      }
+      .visual-stamp strong {
+        font: italic 22px/1.05 'Cormorant Garamond', Georgia, serif;
+      }
+      .experience-bar {
+        background: #eae2d9;
+        border-bottom: 1px solid #ded2c6;
+      }
+      .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding-top: 24px;
+        padding-bottom: 24px;
+      }
+      .experience-grid > div {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        align-items: center;
+        column-gap: 12px;
+        padding: 5px 25px;
+        border-right: 1px solid #d5c6b7;
+      }
+      .experience-grid > div:first-child {
+        padding-left: 0;
+      }
+      .experience-grid > div:last-child {
+        border: 0;
+      }
+      .experience-grid span {
+        grid-row: span 2;
+        color: #987350;
+        font: 500 17px 'Cormorant Garamond', Georgia, serif;
+      }
+      .experience-grid strong {
+        font-size: 11px;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+      .experience-grid small {
+        color: #76665e;
+        font-size: 11px;
+      }
+      .booking {
+        padding-top: 96px;
+        padding-bottom: 96px;
+        scroll-margin-top: 82px;
+      }
+      .booking-head {
+        gap: 60px;
+        margin-bottom: 42px;
+      }
+      .booking-head h2,
+      .section-head h2,
+      .policies h2 {
+        font: 400 clamp(42px, 5.2vw, 66px)/0.98 'Cormorant Garamond', Georgia, serif;
+        letter-spacing: -0.02em;
+      }
+      .booking-head h2 em,
+      .section-head h2 em {
+        color: #987350;
+      }
+      .booking-head p {
+        max-width: 470px;
+        font-size: 14px;
+      }
+      .booking-grid {
+        grid-template-columns: 1.45fr 0.75fr;
+        gap: 30px;
+      }
+      .form-card {
+        background: #fffdfa;
+        border: 1px solid #e8ded4;
+        border-radius: 2px;
+        padding: clamp(22px, 4vw, 42px);
+        box-shadow: 0 18px 55px rgba(48, 35, 33, 0.045);
+      }
+      .step {
+        gap: 15px;
+        margin: 33px 0 17px;
+      }
+      .step > span {
+        background: transparent;
+        border: 1px solid #b89a76;
+        color: #896b4c;
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
+      }
+      .step h3 {
+        font: 500 23px 'Cormorant Garamond', Georgia, serif;
+      }
+      .step p,
+      .selection-count {
+        color: #83766d;
+        font-size: 12px;
+      }
+      .choices {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 8px;
+      }
+      .choice {
+        border: 1px solid #e7ddd3;
+        border-radius: 2px;
+        padding: 12px;
+        font-size: 12px;
+        transition: border-color 0.2s, background 0.2s;
+      }
+      .choice:hover,
+      .segmented button:hover,
+      .mode:hover {
+        border-color: #b89a76;
+      }
+      .choice strong {
+        color: #8d6e4d;
+        font-size: 12px;
+      }
+      .check-circle {
+        width: 15px;
+        height: 15px;
+      }
+      .choice[aria-pressed='true'] {
+        border-color: #987350;
+        background: #f4eee8;
+      }
+      .choice[aria-pressed='true'] .check-circle {
+        background: #987350;
+        border-color: #987350;
+      }
+      .segmented {
+        gap: 7px;
+      }
+      .segmented button,
+      .mode {
+        border: 1px solid #e7ddd3;
+        border-radius: 2px;
+        font-size: 12px;
+      }
+      .segmented button {
+        flex: 1;
+        padding: 12px 10px;
+      }
+      .mode {
+        min-height: 66px;
+      }
+      .mode span {
+        font-size: 11px;
+      }
+      .segmented .active,
+      .mode.active {
+        background: #302321;
+        border-color: #302321;
+      }
+      .mode.active span {
+        color: #cfc0b4;
+      }
+      .fields {
+        gap: 13px;
+      }
+      .fields label {
+        gap: 7px;
+        font-size: 11px;
+        letter-spacing: 0.02em;
+      }
+      input,
+      select,
+      textarea {
+        border: 1px solid #e4d9ce;
+        border-radius: 2px;
+        padding: 12px;
+        font: 13px 'DM Sans', sans-serif;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #987350;
+      }
+      .summary {
+        top: 96px;
+      }
+      .summary-inner {
+        background: #2b201e;
+        color: #f4eee8;
+        border-radius: 2px;
+        padding: 28px;
+      }
+      .summary-inner .overline {
+        color: #cfad84;
+      }
+      .summary-inner h3 {
+        font: 500 32px 'Cormorant Garamond', Georgia, serif;
+      }
+      .summary-list p,
+      .summary-list div,
+      .sum-row {
+        font-size: 12px;
+      }
+      .summary-list p,
+      .approval,
+      .travel-note,
+      #tn {
+        color: #c2b4a9;
+      }
+      .sum-row {
+        border-color: rgba(230, 217, 205, 0.18);
+      }
+      .sum-row strong {
+        font-size: 18px;
+      }
+      .sum-row.deposit strong {
+        color: #d2b18a;
+      }
+      .approval {
+        font-size: 11px;
+      }
+      .policy-check {
+        align-items: flex-start;
+        color: #ddd1c6;
+        font-size: 11px;
+      }
+      .policy-check input {
+        accent-color: #c9a477;
+      }
+      .submit-row {
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+      .submit {
+        background: #c9a477;
+        color: #211816;
+        border-radius: 2px;
+        padding: 14px;
+        box-shadow: none;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .submit.alt {
+        background: transparent;
+        color: #e9ded4;
+        border: 1px solid rgba(233, 222, 212, 0.42);
+        box-shadow: none;
+      }
+      .service-section {
+        background: #211817;
+        color: #f5eee7;
+        padding: 92px 0 100px;
+        scroll-margin-top: 82px;
+      }
+      .service-section .section-head {
+        margin: 0 0 38px;
+        max-width: 760px;
+      }
+      .service-section .section-head h2 em {
+        color: #d0ad82;
+      }
+      .service-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: auto;
+        gap: 12px;
+      }
+      .service-card {
+        position: relative;
+        min-height: 220px;
+        padding: 25px;
+        background: #2b201e;
+        color: #f5eee7;
+        border: 1px solid rgba(201, 164, 119, 0.23);
+        border-radius: 0;
+        gap: 12px;
+        transition: background 0.2s, transform 0.2s, border-color 0.2s;
+      }
+      .service-card:hover {
+        background: #332522;
+        border-color: rgba(201, 164, 119, 0.58);
+        transform: translateY(-3px);
+      }
+      .service-card span {
+        color: #c9a477;
+        font-size: 10px;
+      }
+      .service-card h3 {
+        font: 500 30px/1.05 'Cormorant Garamond', Georgia, serif;
+      }
+      .service-card p {
+        color: #b9aaa0;
+        font-size: 12px;
+      }
+      .service-card a {
+        color: #d3b38b;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .pricing {
+        padding: 90px 0 96px;
+        background: #f7f3ee;
+        scroll-margin-top: 82px;
+      }
+      .pricing .section-head {
+        max-width: 760px;
+        margin: 0 0 34px;
+      }
+      .pricing .section-head p:last-of-type {
+        max-width: 650px;
+        color: #76665e;
+        font-size: 13px;
+      }
+      .table-scroll {
+        border: 1px solid #e5d9ce;
+        border-radius: 2px;
+        box-shadow: 0 12px 40px rgba(48, 35, 33, 0.04);
+      }
+      table {
+        min-width: 700px;
+      }
+      caption {
+        color: #8d6e4d;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+      }
+      thead th {
+        background: #eee6de;
+        color: #493632;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+      }
+      tbody th,
+      tbody td {
+        border-color: #eee6de;
+        font-size: 12px;
+      }
+      tbody th {
+        font: 600 12px 'DM Sans', sans-serif;
+      }
+      tbody tr:hover {
+        background: #faf7f3;
+      }
+      .pricing-note {
+        color: #76665e;
+        font-size: 12px;
+      }
+      .policies {
+        background: #eae2d9;
+        padding: 88px 0;
+        scroll-margin-top: 82px;
+      }
+      .policies h2 {
+        margin-bottom: 34px;
+      }
+      .pol-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .pol {
+        background: #f8f4ef;
+        border: 1px solid #dfd2c5;
+        border-radius: 0;
+        padding: 23px;
+      }
+      .pol h3 {
+        font: 500 23px 'Cormorant Garamond', Georgia, serif;
+      }
+      .pol p {
+        color: #76665e;
+        font-size: 12px;
+        line-height: 1.75;
+      }
+      footer {
+        background: #1d1514;
+        color: #b8aaa0;
+        padding: 32px 0;
+        font: 11px/1.9 'DM Sans', sans-serif;
+      }
+      footer .shell {
+        gap: 6px;
+      }
+      footer strong {
+        color: #e9d8c6;
+        font: 500 27px 'Cormorant Garamond', Georgia, serif;
+      }
+      footer a {
+        color: #d3b38b;
+      }
+      @media (max-width: 820px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 38px;
+          padding-top: 68px;
+          padding-bottom: 56px;
+        }
+        .hero h1 {
+          font-size: clamp(58px, 12vw, 82px);
+        }
+        .hero-visual {
+          padding-left: 14px;
+        }
+        .hero-visual img {
+          height: min(68vw, 430px);
+        }
+        .experience-grid {
+          padding-top: 14px;
+          padding-bottom: 14px;
+        }
+        .experience-grid > div {
+          padding: 5px 12px;
+          column-gap: 7px;
+        }
+        .experience-grid small {
+          font-size: 9px;
+        }
+        .booking {
+          padding-top: 70px;
+          padding-bottom: 70px;
+        }
+        .booking-grid {
+          grid-template-columns: 1fr;
+        }
+        .summary {
+          position: static;
+        }
+        .service-grid,
+        .pol-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 560px) {
+        .shell {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        .nav {
+          min-height: 68px;
+        }
+        .nav-menu {
+          background: #211817;
+          padding: 15px 0 5px;
+        }
+        .nav-menu a {
+          padding: 4px 0;
+        }
+        .nav-menu .nav-cta {
+          padding: 13px;
+        }
+        .hero-grid {
+          padding-top: 57px;
+        }
+        .hero h1 {
+          font-size: clamp(54px, 14vw, 70px);
+        }
+        .hero-buttons {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 19px;
+        }
+        .hero-meta {
+          flex-direction: column;
+          gap: 8px;
+        }
+        .experience-grid {
+          grid-template-columns: 1fr;
+          gap: 5px;
+        }
+        .experience-grid > div,
+        .experience-grid > div:first-child {
+          padding: 8px 0;
+          border-right: 0;
+          border-bottom: 1px solid #d5c6b7;
+        }
+        .experience-grid > div:last-child {
+          border-bottom: 0;
+        }
+        .experience-grid small {
+          font-size: 10px;
+        }
+        .booking-head {
+          gap: 14px;
+        }
+        .booking-head h2,
+        .section-head h2,
+        .policies h2 {
+          font-size: 48px;
+        }
+        .form-card {
+          padding: 20px 16px;
+        }
+        .choices,
+        .mode-row,
+        .service-grid,
+        .pol-grid {
+          grid-template-columns: 1fr;
+        }
+        .segmented {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .service-section,
+        .pricing,
+        .policies {
+          padding-top: 68px;
+          padding-bottom: 70px;
+        }
+        .service-card {
+          min-height: 190px;
+        }
+        .submit-row {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -838,15 +1473,9 @@
           <span class="nav-toggle-bar"></span>
         </button>
         <nav class="nav-menu" id="main-nav" aria-label="Main navigation">
-          <a href="#menu">Menu</a><a href="#pricing">Pricing</a
-          ><a href="#policies">Policies</a><a href="#contact">Contact</a>
-          <span
-            class="themes"
-            id="themes"
-            role="group"
-            aria-label="Color theme"
-          ></span>
-          <a class="nav-cta" href="#book">Request a visit</a>
+          <a href="#menu">Experiences</a><a href="#pricing">Rates</a
+          ><a href="#policies">Our approach</a><a href="#contact">Contact</a>
+          <a class="nav-cta" href="#book">Request a session</a>
         </nav>
       </div>
     </header>
@@ -855,20 +1484,21 @@
       <section class="hero">
         <div class="shell hero-grid">
           <div>
-            <p class="overline">RELIEF FOR THE BODY YOU LIVE IN</p>
-            <h1>Care for your body.<br /><em>Time for yourself.</em></h1>
+            <p class="overline">PRIVATE · ADULT-ONLY · 18+</p>
+            <h1>Leave the world<br /><em>at the door.</em></h1>
             <p>
-              Build a visit that feels like yours. Choose one to three massage
-              styles, pick your time, and send a request. Solo or couples,
-              studio or home visit.
+              A discreet space for sensual massage, unhurried touch, and time
+              that belongs entirely to you. Choose your experience and request
+              a private appointment.
             </p>
             <div class="hero-buttons">
-              <a class="primary" href="#book">Plan your visit</a
-              ><a class="secondary" href="#pricing">See the prices</a>
+              <a class="primary" href="#book">Request a session</a
+              ><a class="secondary" href="#menu">Explore experiences</a>
             </div>
             <div class="hero-meta">
-              <span>Studio or home visits</span
-              ><span>Request first, confirmation after</span>
+              <span>Discreet by design</span
+              ><span>Consent-led, always</span
+              ><span>By appointment only</span>
             </div>
           </div>
           <div class="hero-visual">
@@ -878,21 +1508,30 @@
             />
             <div class="visual-stamp">
               <span>RUB &amp; RESTORE</span
-              ><strong>Rest looks good<br />on you.</strong>
+              >              <strong>Your time.<br />Your terms.</strong>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="experience-bar" aria-label="Our commitments">
+        <div class="shell experience-grid">
+          <div><span>01</span><strong>Adults only</strong><small>18+ appointments</small></div>
+          <div><span>02</span><strong>Clear boundaries</strong><small>Discussed before every session</small></div>
+          <div><span>03</span><strong>Private by nature</strong><small>Your details stay discreet</small></div>
         </div>
       </section>
 
       <section class="booking shell" id="book">
         <div class="booking-head">
           <div>
-            <p class="overline dark">PERSONALIZE YOUR VISIT</p>
-            <h2>Make it <em>your moment.</em></h2>
+            <p class="overline dark">YOUR SESSION, YOUR WAY</p>
+            <h2>Make room for<br /><em>what you want.</em></h2>
           </div>
           <p>
-            Choose 1 to 3 massage styles for one shared visit length. Prices are
-            per 60 minutes and added together, and longer visits cost more.
+            Select up to three experiences, choose a session length, then tell
+            us what helps you feel comfortable. Every request is confirmed
+            privately before it becomes an appointment.
           </p>
         </div>
         <div class="booking-grid">
@@ -900,8 +1539,8 @@
             <div class="step">
               <span>01</span>
               <div>
-                <h3>Choose 1 to 3 styles</h3>
-                <p>Each style is included within one shared visit length.</p>
+                <h3>Choose your experiences</h3>
+                <p>Select one to three options for your session.</p>
               </div>
             </div>
             <div class="choices" id="styles"></div>
@@ -909,16 +1548,16 @@
             <div class="step">
               <span>02</span>
               <div>
-                <h3>Set the visit length</h3>
-                <p>One length for all the styles you picked.</p>
+                <h3>Set your session length</h3>
+                <p>Take the time that feels right for you.</p>
               </div>
             </div>
             <div class="segmented" id="lens"></div>
             <div class="step">
               <span>03</span>
               <div>
-                <h3>Who and where</h3>
-                <p>Come to the studio or we travel to you.</p>
+                <h3>Choose your setting</h3>
+                <p>Private studio or an out-call to your location.</p>
               </div>
             </div>
             <div class="mode-row" id="who"></div>
@@ -926,8 +1565,8 @@
             <div class="step">
               <span>04</span>
               <div>
-                <h3>Tell us about your visit</h3>
-                <p>Suggest any day and time. We confirm availability.</p>
+                <h3>Request a private session</h3>
+                <p>Share your preferred time and any boundaries or needs.</p>
               </div>
             </div>
             <div class="fields">
@@ -983,21 +1622,21 @@
                 >Anything else? (optional)<textarea
                   id="f-note"
                   rows="3"
-                  placeholder="Problem areas, pressure, anything to avoid."
+                  placeholder="Preferences, boundaries, or anything you would like us to know."
                 ></textarea>
               </label>
             </div>
           </div>
           <aside class="summary">
             <div class="summary-inner">
-              <p class="overline dark">YOUR REQUEST</p>
-              <h3>Visit summary</h3>
+              <p class="overline dark">PRIVATE SESSION REQUEST</p>
+              <h3>Your selection</h3>
               <div class="summary-list" id="list"></div>
               <div class="sum-row">
-                <span>Massage total</span><strong id="total">$0</strong>
+                <span>Session total</span><strong id="total">$0</strong>
               </div>
               <div class="sum-row deposit">
-                <span>70% deposit to hold your slot</span
+                <span>70% deposit to hold your time</span
                 ><strong id="dep">$0</strong>
               </div>
               <p id="tn">
@@ -1005,21 +1644,22 @@
               </p>
               <div class="approval">
                 <p>
-                  This is a request, not a confirmed appointment. We reply to
-                  confirm the time and share payment details.
+                  This is a request, not a confirmed appointment. We will
+                  privately confirm availability, boundaries, and payment
+                  details with you.
                 </p>
               </div>
               <label class="policy-check"
                 ><input type="checkbox" id="agree" /><span
-                  >I have read the policies below.</span
+                  >I confirm I am 18 or older and have read the policies below.</span
                 ></label
               >
               <div class="submit-row">
                 <button class="submit" id="send" disabled>
-                  Book via WhatsApp
+                  Request via WhatsApp
                 </button>
                 <button class="submit alt" id="email-request" type="button">
-                  Book via Mail
+                  Request via email
                 </button>
               </div>
             </div>
@@ -1030,8 +1670,8 @@
       <section class="service-section" id="menu">
         <div class="shell">
           <div class="section-head">
-            <p class="overline">THE MENU</p>
-            <h2>A style for every<br /><em>kind of reset.</em></h2>
+            <p class="overline">THE EXPERIENCES</p>
+            <h2>Choose what feels<br /><em>good to you.</em></h2>
           </div>
           <div class="service-grid">
             <div class="service-card">
@@ -1263,9 +1903,9 @@
           <p class="overline dark">CLEAR PRICING</p>
           <h2>Know your options<br /><em>before you request.</em></h2>
           <p>
-            Prices shown are for each massage style at the chosen visit length.
-            Select 2–5 styles and their prices are added together. Out-call
-            travel is quoted separately after we know your city and state.
+            Prices shown are for each experience at the chosen session length.
+            Choose one to three experiences; selected prices are added
+            together. Out-call travel is quoted separately for your location.
           </p>
         </div>
         <div class="table-scroll">
@@ -1368,8 +2008,9 @@
           </table>
         </div>
         <p class="pricing-note">
-          Overnight visits run from 8 PM to 6 AM. A 70% deposit is required for
-          approval; no payment is collected on this website.
+          Overnight sessions run from 8 PM to 6 AM. A 70% deposit is required
+          for approval; no payment is collected on this website. All services
+          are for consenting adults aged 18 and over.
         </p>
       </section>
 
@@ -1438,18 +2079,28 @@
             </div>
 
             <div class="pol">
+              <h3>Adults and consent</h3>
+              <p>
+                Appointments are for adults aged 18 and over. Your comfort,
+                consent, and boundaries come first; discuss preferences and
+                limits with us before the session. Either person may pause or
+                end a session at any time.
+              </p>
+            </div>
+
+            <div class="pol">
               <h3>Confidentiality</h3>
               <p>
-                our personal and booking information will remain confidential
+                Your personal and booking information will remain confidential
                 except when disclosure is required by law.
               </p>
             </div>
 
             <div class="pol">
-              <h3>Your agreement</h3>
+              <h3>Professional boundaries</h3>
               <p>
-                By paying the 70% deposit, you confirm that you have read,
-                understood, and accepted this booking policy.
+                Services, expectations, and boundaries are agreed before an
+                appointment. Requests outside the agreed service are declined.
               </p>
             </div>
           </div>
@@ -1459,7 +2110,8 @@
 
     <footer id="contact">
       <div class="shell">
-        <strong>Rub &amp; Restore Massage</strong><br />
+        <strong>Rub &amp; Restore</strong>
+        <span>Private sensual massage · Adults 18+ · By appointment only</span>
         <span>
           WhatsApp:
           <a href="https://wa.me/12512131358" target="_blank" rel="noopener"
@@ -1471,7 +2123,7 @@
           >
         </span>
         <br />
-        In-call by appointment · Out-call requests across the United States
+        Discreet requests · Consent-led experiences · Professional boundaries
       </div>
     </footer>
 
@@ -1486,9 +2138,9 @@
         ['Reflexology', 100],
         ['Shiatsu', 110],
         ['Lymphatic Drainage', 125],
-        ['Happy Ending', 150],
+        ['Happy Ending', 145],
         ['Nuru', 135],
-        ['Body Rub', 130],
+        ['Body Rub', 110],
       ];
       var LEN = [
         ['60 min', 1],
@@ -1505,7 +2157,7 @@
         ['Studio', 'Come to us', 0],
         [
           'Home visit',
-          'We travel to you and travel charge will communicated',
+          'We travel to you; travel is quoted for your location',
           50,
         ],
       ];
@@ -1614,7 +2266,7 @@
             );
           },
         );
-        $('count').textContent = sel.length + ' of 1 to 3 selected';
+        $('count').textContent = sel.length + ' of 3 experiences selected';
         var base = sel.reduce(function (a, i) {
             return a + STY[i][1];
           }, 0),
@@ -1639,7 +2291,7 @@
             ', ' +
             WH[pi][0].toLowerCase() +
             '</p>'
-          : '<p>Choose your massage styles to see the total.</p>';
+          : '<p>Choose experiences to see your session total.</p>';
         var total = sel.length ? t + tr : 0;
         $('total').textContent = '$' + total;
         $('dep').textContent = '$' + (sel.length ? Math.round(total * 0.7) : 0);
@@ -1677,7 +2329,7 @@
       function validateBookingRequest() {
         if (!sel.length) {
           alert(
-            'Please choose at least one massage style before sending your request.',
+            'Please choose at least one experience before sending your request.',
           );
           return false;
         }
@@ -1799,7 +2451,7 @@
         });
       function buildRequestMessage() {
         return (
-          "Hi Rub & Restore, I'd like to request a visit:\n" +
+          "Hi Rub & Restore, I'd like to request a private session:\n" +
           sel
             .map(function (i) {
               return STY[i][0];
@@ -1843,38 +2495,11 @@
       };
       $('email-request').onclick = function () {
         if (!validateBookingRequest()) return;
-        var subject = encodeURIComponent('Massage booking request');
+        var subject = encodeURIComponent('Private session request');
         var body = encodeURIComponent(buildRequestMessage());
         window.location.href =
           'mailto:' + EMAIL + '?subject=' + subject + '&body=' + body;
       };
-      var TH = [
-        ['teal', '#0F3B45'],
-        ['plum', '#221B3A'],
-        ['forest', '#17352A'],
-        ['slate', '#1E2A38'],
-      ];
-      function theme(n) {
-        if (n == 'teal') document.documentElement.removeAttribute('data-theme');
-        else document.documentElement.setAttribute('data-theme', n);
-        try {
-          localStorage.setItem('rr-theme', n);
-        } catch (e) {}
-      }
-      TH.forEach(function (t) {
-        var b = document.createElement('button');
-        b.style.background = t[1];
-        b.title = t[0];
-        b.setAttribute('aria-label', t[0] + ' theme');
-        b.onclick = function () {
-          theme(t[0]);
-        };
-        $('themes').appendChild(b);
-      });
-      try {
-        var s = localStorage.getItem('rr-theme');
-        if (s) theme(s);
-      } catch (e) {}
       render();
     </script>
   </body>
